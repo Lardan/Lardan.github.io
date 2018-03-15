@@ -1,0 +1,160 @@
+/* General */
+* {
+  font-family: "Open Sans";
+}
+
+body {
+  background-color: #FEFEFE;
+  color: #262524;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  margin: 6px 0;
+}
+
+p {
+  margin: 6px 0;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 150px;
+  color: #EA6D28;
+  line-height: 150px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 60px;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+/* Button */
+.btn-action {
+  background-color: #EA6D28;
+  color: #FEFEFE !important;
+  text-transform: uppercase;
+  font-size: 24px;
+  padding: 20px 60px;
+}
+
+.btn-action:hover {
+  background-color: #CE5C24;
+}
+
+/* Illustration */
+.illustration {
+  background-size: 100%;
+  position: relative;
+  width: 476px;
+  height: 409px;
+  display: inline-block;
+}
+.illustration .laptop {
+  background: url(/assets/error/laptop.png) no-repeat;
+  background-size: 100%;
+  position: absolute;
+  width: 289px;
+  height: 344px;
+  bottom: 0;
+}
+.illustration .caveman {
+  background: url(/assets/error/caveman.png) no-repeat;
+  background-size: 100%;
+  z-index: 2;
+  position: absolute;
+  width: 167px;
+  height: 409px;
+  bottom: 0;
+  right: 0;
+}
+.illustration .hand {
+  background: url(/assets/error/hand.png) no-repeat;
+  background-size: 100%;
+  z-index: 1;
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  top: 115px;
+  left: 190px;
+  -moz-animation: 1s ease 0s normal none infinite hand;
+  -moz-transform-origin: right top;
+  -webkit-animation: hand 1s infinite ease-in-out;
+  -webkit-transform-origin: right top;
+  -o-animation: 1s ease 0s normal none infinite hand;
+  -o-transform-origin: right top;
+  -o-animation: hand 1s infinite ease-in-out;
+  -o-transform-origin: right top;
+  -ms-animation: 1s ease 0s normal none infinite hand;
+  -ms-transform-origin: right top;
+  -ms-animation: hand 1s infinite ease-in-out;
+  -ms-transform-origin: right top;
+  animation: 1s ease 0s normal none infinite hand;
+  transform-origin: right top;
+  animation: hand 1s infinite ease-in-out;
+  transform-origin: right top;
+}
+
+@-moz-keyframes hand {
+  0% {
+    -moz-transform: rotate(-2deg);
+  }
+  50% {
+    -moz-transform: rotate(45deg);
+  }
+  100% {
+    -moz-transform: rotate(-2deg);
+  }
+}
+@-webkit-keyframes hand {
+  0% {
+    -webkit-transform: rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(-2deg);
+  }
+}
+@-o-keyframes hand {
+  0% {
+    -o-transform: rotate(-2deg);
+  }
+  50% {
+    -o-transform: rotate(45deg);
+  }
+  100% {
+    -o-transform: rotate(-2deg);
+  }
+}
+@-ms-keyframes hand {
+  0% {
+    -ms-transform: rotate(-2deg);
+  }
+  50% {
+    -ms-transform: rotate(45deg);
+  }
+  100% {
+    -ms-transform: rotate(-2deg);
+  }
+}
+@keyframes hand {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
+}

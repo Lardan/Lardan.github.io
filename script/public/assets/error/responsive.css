@@ -1,0 +1,174 @@
+/* max-width: 1920px */
+@media (max-width: 1920px) {
+  body {
+    font-size: 19.2px;
+  }
+
+  h1, h2, p {
+    margin: 4.8px;
+  }
+
+  h1 {
+    font-size: 120px;
+    line-height: 120px;
+  }
+
+  h2 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .btn-action {
+    padding: 16px 48px;
+    font-size: 19.2px;
+  }
+
+  section {
+    margin-bottom: 48px;
+  }
+
+  .illustration {
+    width: 380.8px;
+    height: 327.2px;
+  }
+  .illustration .laptop {
+    width: 231.2px;
+    height: 275.2px;
+  }
+  .illustration .caveman {
+    width: 133.6px;
+    height: 327.2px;
+  }
+  .illustration .hand {
+    width: 144px;
+    height: 48px;
+    top: 92px;
+    left: 152px;
+  }
+}
+/* max-width: 1366px */
+@media (max-width: 1440px) {
+  body {
+    font-size: 14.4px;
+  }
+
+  h1, h2, p {
+    margin: 3.6px;
+  }
+
+  h1 {
+    font-size: 90px;
+    line-height: 90px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .btn-action {
+    padding: 16px 36px;
+    font-size: 14.4px;
+  }
+
+  section {
+    margin-bottom: 36px;
+  }
+
+  .illustration {
+    width: 285.6px;
+    height: 245.4px;
+  }
+  .illustration .laptop {
+    width: 173.4px;
+    height: 206.4px;
+  }
+  .illustration .caveman {
+    width: 100.2px;
+    height: 245.4px;
+  }
+  .illustration .hand {
+    width: 108px;
+    height: 36px;
+    top: 69px;
+    left: 114px;
+  }
+}
+/* max-width: 768px */
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+
+  h1, h2, p {
+    margin: 3px;
+  }
+
+  h1 {
+    font-size: 75px;
+    line-height: 75px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .btn-action {
+    padding: 16px 30px;
+    font-size: 12px;
+  }
+
+  section {
+    margin-bottom: 30px;
+  }
+
+  .illustration {
+    width: 238px;
+    height: 204.5px;
+  }
+  .illustration .laptop {
+    width: 144.5px;
+    height: 172px;
+  }
+  .illustration .caveman {
+    width: 83.5px;
+    height: 204.5px;
+  }
+  .illustration .hand {
+    width: 90px;
+    height: 30px;
+    top: 57.5px;
+    left: 95px;
+  }
+}
+/* max-width: 468px */
+@media (max-width: 468px) {
+  .btn-action {
+    padding: 16px 24px;
+    font-size: 9.6px;
+  }
+
+  section {
+    margin-bottom: 24px;
+  }
+
+  .illustration {
+    width: 190.4px;
+    height: 163.6px;
+  }
+  .illustration .laptop {
+    width: 115.6px;
+    height: 137.6px;
+  }
+  .illustration .caveman {
+    width: 66.8px;
+    height: 163.6px;
+  }
+  .illustration .hand {
+    width: 72px;
+    height: 24px;
+    top: 46px;
+    left: 76px;
+  }
+}

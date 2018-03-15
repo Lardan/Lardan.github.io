@@ -1,0 +1,76 @@
+<?php
+Route::get('/login', ['as' => 'login', 'uses' => 'SteamController@login']);
+Route::get('/logout', ['as' => 'logout', 'uses' => 'SteamController@logout']);
+Route::match(['get', 'post'], '/', ['as' => 'index', 'uses' => 'Pages@index']);
+Route::match(['get', 'post'], '/partner', ['as' => 'faq', 'uses' => 'Pages@partner']);
+Route::match(['get', 'post'], '/faq', ['as' => 'faq', 'uses' => 'Pages@faq']);
+Route::match(['get', 'post'], '/reviews', ['as' => 'reviews', 'uses' => 'Pages@reviews']);
+Route::match(['get', 'post'], '/top', ['as' => 'top', 'uses' => 'Pages@top']);
+Route::match(['get', 'post'], '/game/{id}', ['as' => 'cases', 'uses' => 'Pages@cases']);
+Route::match(['get', 'post'], '/user/{id}', ['as' => 'user', 'uses' => 'Pages@profile']);
+Route::match(['get', 'post'], '/pload/{id}', ['as' => 'pload', 'uses' => 'Pages@pload']);
+Route::get('/robokassa', 'Pages@getResult');
+Route::get('/validnextpay', 'Pages@validnextpay');
+Route::get('/donate', 'DonateController@GDonateDonate');
+Route::match(['get', 'post'], '/suc', 'DonateController@Digseller');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/pay', ['as' => 'pay', 'uses' => 'Pages@pay']);
+    Route::get('/postLang/{lang}', ['as' => 'postLang', 'uses' => 'Pages@postLang']);
+    Route::post('/newdemo', ['as' => 'newgdemo', 'uses' => 'Demo@newgame']);
+    Route::post('/newgame', ['as' => 'newgame', 'uses' => 'Games@newgame']);
+    Route::post('/play', ['as' => 'play', 'uses' => 'Games@play']);
+    Route::post('/chat', ['as' => 'chat', 'uses' => 'ChatController@add_message']);
+    Route::get('/chats', ['as' => 'chat', 'uses' => 'ChatController@add_message']);
+    Route::post('/save_link', ['as' => 'settings.update', 'uses' => 'SteamController@updateSettings']);
+    Route::post('/select/aj_random_thing', ['as' => 'newgame', 'uses' => 'Games@randomitem']);
+    Route::post('/select/aj_sell_or_wait', ['as' => 'newgame', 'uses' => 'Games@aj_sell_or_wait']);
+    Route::post('/select/aj_sell_transfer', ['as' => 'newgame', 'uses' => 'Games@aj_sell_transfer']);
+});
+
+Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function () {
+    Route::get('/addfake', 'Fake@addfake');
+    Route::match(['get', 'post'], '/chatdel', ['as' => 'chat', 'uses' => 'ChatController@delete_message']);
+    Route::get('/fake', 'Fake@fake');
+    Route::get('/admin/lastcase/{id}', ['as' => 'lastcase', 'uses' => 'Admin@lastcase']);
+    Route::get('/admin/stats', 'Admin@stats');
+    Route::get('/admin/stats/case', 'Admin@statscase');
+    Route::get('/admin/stats/users', 'Admin@statsusers');
+    Route::get('/admin/items', ['as' => 'items', 'uses' => 'Admin@items']);
+    Route::get('/admin/itemsban', ['as' => 'itemsban', 'uses' => 'Admin@itemsban']);
+    Route::get('/admin/search', ['as' => 'search', 'uses' => 'Admin@search']);
+    Route::get('/admin/searchusers', ['as' => 'search', 'uses' => 'Admin@search2']);
+    Route::get('/admin/users', ['as' => 'users', 'uses' => 'Admin@users']);
+    Route::get('/admin/user/{id}', ['as' => 'users', 'uses' => 'Admin@userid']);
+    Route::get('/admin/lastmoney/{id}', ['as' => 'lastmoney', 'uses' => 'Admin@lastmoney']);
+    Route::match(['get', 'post'], '/admin/givemoney/{id}', ['as' => 'givemoney', 'uses' => 'Admin@givemoney']);
+    Route::post('/admin/edit/{id}', ['as' => 'cases', 'uses' => 'Admin@itemsedits']);
+    Route::post('/admin/userdit', ['as' => 'user', 'uses' => 'Admin@userdit']);
+    Route::get('/admin/items/cat/{id}', ['as' => 'items', 'uses' => 'Admin@itemscat']);
+    Route::get('/admin/case/{id}', ['as' => 'cases', 'uses' => 'Admin@casesid']);
+    Route::get('/admin/items/{id}', ['as' => 'cases', 'uses' => 'Admin@itemsid']);
+    Route::get('/admin/itemsnew', ['as' => 'cases', 'uses' => 'Admin@itemsnew']);
+    Route::get('/admin/cases', ['as' => 'cases', 'uses' => 'Admin@casesnew']);
+    Route::post('/admin/casesedit', ['as' => 'cases', 'uses' => 'Admin@casesedit']);
+    Route::post('/admin/itemsedit', ['as' => 'cases', 'uses' => 'Admin@itemsedit']);
+    Route::post('/admin/config', ['as' => 'config', 'uses' => 'Admin@config']);
+    Route::get('/admin', ['as' => 'admin', 'uses' => 'Admin@index']);
+    Route::get('/admin/case', ['as' => 'cases', 'uses' => 'Admin@cases']);
+    Route::get('/admin/log', ['as' => 'log', 'uses' => 'Admin@autobuy']);
+    Route::get('/admin/game', ['as' => 'game', 'uses' => 'Admin@game']);
+    Route::get('/admin/config', ['as' => 'config', 'uses' => 'Admin@config']);
+    Route::get('/listbuy', ['as' => 'cases', 'uses' => 'Sell@listbuy']);
+    Route::get('/listupdate', ['as' => 'cases', 'uses' => 'Sell@listupdate']);
+    Route::get('/newdemo', ['as' => 'newgdemo', 'uses' => 'Demo@newgame']);
+    Route::get('/newgame', ['as' => 'newgame', 'uses' => 'Games@newgame']);
+});
+
+Route::group(['prefix' => 'api', 'middleware' => 'secretKey'], function () {
+    Route::get('/case', 'Pages@caseinfo');
+    Route::get('/fake', 'Fake@fake');
+    Route::get('/stats', ['as' => 'cases', 'uses' => 'Pages@stats']);
+    Route::get('/listupdate', ['as' => 'cases', 'uses' => 'Sell@listupdate']);
+    Route::get('/sendme', 'Sell@sendme');
+    Route::get('/newItems', 'Sell@newItems');
+    Route::post('/setItemStatus', 'Games@setItemStatus');
+    Route::get('/listbuy', ['as' => 'cases', 'uses' => 'Sell@listbuy']);
+});
